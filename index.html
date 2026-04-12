@@ -17,25 +17,31 @@
         changer current mood ✨
     </button>
 
-    <script>
-        function changeMagic() {
-            // تشغيل الصوت
-            var audio = document.getElementById("clickSound");
-            audio.play().catch(function(error) {
-                console.log("لازم تضغط على الشاشة أول مرة علمود يشتغل الصوت");
-            });
-
-            // تغيير اللون
-            const colors = ['#ff4757', '#2e86de', '#2ecc71', '#f1c40f', '#8e44ad', '#1a1a1a', '#e91e63'];
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            document.getElementById('myBody').style.backgroundColor = randomColor;
-
-            // حركة اهتزاز بسيطة للزر
-            const btn = document.querySelector('button');
-            btn.style.transform = "scale(0.95)";
-            setTimeout(() => { btn.style.transform = "scale(1)"; }, 100);
+<script>
+    // أول ما يفتح الموقع يطلب الاسم
+    window.onload = function() {
+        let name = prompt("هلا بيك بموقع علاوي.. شنو اسمك يا بطل؟");
+        if (name != null && name != "") {
+            document.getElementById("welcome-text").innerHTML = "نورت الموقع يا " + name + " 🔥";
         }
-    </script>
+    };
+
+    function changeMagic() {
+        // تشغيل الصوت
+        var audio = document.getElementById("clickSound");
+        audio.play();
+
+        // تغيير اللون
+        const colors = ['#ff4757', '#2e86de', '#2ecc71', '#f1c40f', '#8e44ad', '#1a1a1a', '#e91e63'];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        document.getElementById('myBody').style.backgroundColor = randomColor;
+
+        // حركة اهتزاز بسيطة للزر
+        const btn = document.querySelector('button');
+        btn.style.transform = "scale(0.95)";
+        setTimeout(() => { btn.style.transform = "scale(1)"; }, 100);
+    }
+</script>
 
 </body>
 </html>

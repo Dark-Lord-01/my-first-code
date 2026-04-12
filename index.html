@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-    <title>صفحة أبو يونس</title>
+    <meta charset="UTF-8">
+    <title>موقع أبو يونس المتفاعل</title>
 </head>
-<body style="background-color: #1a1a1a; color: white; text-align: center; font-family: sans-serif; padding-top: 50px;">
-    <h1>هلا والله! أنا أبو يونس ✌️</h1>
-    <p>هذا أول كود برمجته على GitHub بمساعدة جيمناي</p>
-    <div style="color: #00ff00;">الهدف القادم: تعلم البرمجة والاستثمار! 🚀</div>
+<body id="myBody" style="background-color: #1a1a1a; color: white; text-align: center; font-family: sans-serif; padding-top: 50px; transition: 0.5s;">
+
+    <h1>أهلاً بك في عالم البرمجة يا أبو يونس العلم علاوي الورد ضد الحراره وابرد 🚀</h1>
+    <p>اضغط على الزر تحت وشوف السحر</p>
+
+    <button onclick="changeMagic()" style="padding: 15px 30px; font-size: 18px; cursor: pointer; border-radius: 10px; border: none; background-color: #00ff00; color: black; font-weight: bold;">
+        غير جو الموقع! ✨
+    </button>
+
+    <script>
+        function changeMagic() {
+            // كود يغير لون الخلفية عشوائياً
+            const colors = ['#ff4757', '#2e86de', '#2ecc71', '#f1c40f', '#8e44ad', '#1a1a1a'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById('myBody').style.backgroundColor = randomColor;
+            
+            // يطلع رسالة تشجيعية
+            console.log("كفو أبو يونس.. بدأت تحرك الكود!");
+        }
+    </script>
+
 </body>
 </html>

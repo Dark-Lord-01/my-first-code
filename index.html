@@ -2,47 +2,123 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
-    <title>موقع علاوي الورد</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>للبيت, لاحلى بنيه, لمرتي,لحب حياتي, لام جهال, لرزونتي, لامي, لبنتي الاحبها💋💐✨</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            transition: 0.8s;
+            overflow: hidden;
+        }
+        .heart-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 20, 147, 0.4);
+            text-align: center;
+            max-width: 450px;
+        }
+        .main-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #ff1493;
+            box-shadow: 0 0 20px #ff1493;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        h1 {
+            color: #ff1493;
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+        }
+        .message {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .love-btn {
+            background: #ff1493;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+            transition: 0.3s;
+        }
+        .love-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ff1493;
+        }
+        /* تأثير القلوب الطائرة */
+        .heart {
+            position: absolute;
+            color: #ff1493;
+            font-size: 20px;
+            animation: fly 3s linear forwards;
+        }
+        @keyframes fly {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
 </head>
-<body id="myBody" style="background-color: #1a1a1a; color: white; text-align: center; font-family: 'Cairo', sans-serif; padding-top: 50px; transition: 0.5s;">
+<body id="bg">
 
-    <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+    <audio id="loveSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
 
-    <img src="https://substreammagazine.com/wp-content/uploads/2025/04/22f9637e-f41b-4ac2-8eff-b69a172491c9-1280x640.jpg" style="width: 200px; border: 4px solid #00ff00; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 0 15px #00ff00;">
+    <div class="heart-container">
+        <img src="https://i.ibb.co/VWVfMvY/epstein.png" class="main-img"> 
+        
+        <h1 id="headline">لاحلى مره بالدنيا 💗✨</h1>
+        
+        <div class="message">
+            "حبيبتي رزونتي يا نور عيني يا عمر عمري يا حياة حياتي اعشقج واحبج وماكو بنيه تكدر تجي تبدل مكانج يا احلى بنيه بالدنيا" 🌹
+        </div>
 
-    <h1 id="welcome-text">Ali's Future in Programming✌️🔥</h1>
-    
-    <p style="font-size: 1.2rem; color: #ccc;">Maybe this could be a new future for Ali</p>
-
-    <button onclick="changeMagic()" style="padding: 15px 30px; font-size: 20px; cursor: pointer; border-radius: 50px; border: none; background-color: #00ff00; color: black; font-weight: bold; box-shadow: 0 0 20px #00ff00; transition: 0.1s; outline: none;">
-        غير الأجواء ✨
-    </button>
+        <button class="love-btn" onclick="sendLove()">اضغطي هنا يا قلبي ✨</button>
+    </div>
 
     <script>
-        // أول ما يفتح الموقع يطلب الاسم
-        window.onload = function() {
-            setTimeout(function() {
-                let name = prompt("Ali's program");
-                if (name != null && name != "") {
-                    document.getElementById("welcome-text").innerHTML = "نورت الموقع يا " + name + " 🔥";
-                }
-            }, 500); // تأخير بسيط حتى تحمل الصفحة صح
-        };
+        function sendLove() {
+            // تشغيل الصوت
+            document.getElementById("loveSound").play();
 
-        function changeMagic() {
-            var audio = document.getElementById("clickSound");
-            audio.play().catch(function(e) { console.log("الصوت محظور حالياً"); });
-
-            const colors = ['#ff4757', '#2e86de', '#2ecc71', '#f1c40f', '#8e44ad', '#1a1a1a', '#e91e63'];
+            // تغيير لون الخلفية لدرجات الوردي
+            const colors = ['#2c001e', '#4a0e2a', '#6d1c3c', '#121212'];
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            document.getElementById('myBody').style.backgroundColor = randomColor;
+            document.body.style.backgroundColor = randomColor;
 
-            const btn = document.querySelector('button');
-            btn.style.transform = "scale(0.95)";
-            setTimeout(() => { btn.style.transform = "scale(1)"; }, 100);
+            // توليد قلوب طائرة
+            for (let i = 0; i < 10; i++) {
+                createHeart();
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => { heart.remove(); }, 3000);
         }
     </script>
-
 </body>
 </html>
